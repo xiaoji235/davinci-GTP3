@@ -3,51 +3,53 @@
     <div class="tips">
       <div v-show="loginType === 'key'">
         <p>
-          You can create or revoke your API key at <a target="_blank" href="https://platform.openai.com/account/api-keys">platform.openai.com</a>, You should be well known about the
-          following terms:
+          你可以在<a target="_blank" href="https://platform.openai.com/account/api-keys">platform.openai.com</a>创建你的API KEY, 你应该遵循以下条款:
         </p>
         <ul style="margin-bottom: 20px">
           <li>
-            Your API key is your property, please keep it safe.
+            你的API密钥属于个人信息，请妥善保管。
           </li>
           <li>
-            To authenticate with OpenAI, we will send your API key to our server for processing but it will never be
-            stored there. Don't believe it? Check the <a
-            href="https://github.com/jw-12138/davinci-web/blob/main/back-end/main.cjs" target="_blank">source code</a>.
+            要使用 OpenAI 进行身份验证，我们会将您的 API 密钥发送到我们的服务器进行处理，但它永远不会存储在那里。不信？前往检查 <a
+            href="https://github.com/jw-12138/davinci-web/blob/main/back-end/main.cjs#L158" target="_blank">source code</a>.
           </li>
           <li>
-            Make sure this device is trusted, we will store your API key in this browser. If you're using a public
-            computer, remember to sign out after you're done using it.
+            确保此设备受信任，我们会将您的API密钥存储在此浏览器中。如果您使用的是公用设备，请记住在使用完后注销。
           </li>
           <li>
-            Make sure you are on a secure network to prevent potential theft of your API key.
+            确保您在安全的网络上，以防止您的 API 密钥可能被盗。
           </li>
           <li>
-            If you believe your API key has been compromised, revoke it ASAP.
+            如果您认为您的 API 密钥已泄露，请尽快撤销它！
           </li>
         </ul>
       </div>
 
     </div>
+    <!--ban掉sso-->
+    <!--
     <div v-show="loginType === 'password'">
       <button class="sso" @click="goToSSO">
-        <span>Sign in</span>
+        <span>用SSO登录</span>
       </button>
     </div>
+    -->
     <div class="password" v-show="loginType === 'key'">
       <input type="password" v-model="password" autofocus @keydown="listenForEnter" @focus="passwordFocus = true"
              @blur="passwordFocus = false" placeholder="API key" enterkeyhint="go">
-      <button @click="login" :disabled="trying"><i v-show="trying" class="iconfont spin">&#xe676;</i> Submit</button>
+      <button @click="login" :disabled="trying"><i v-show="trying" class="iconfont spin">&#xe676;</i>登录</button>
     </div>
     <div style="font-size: 14px;">
       <br>
       <p v-show="loginType === 'password'">
-        Or if you have OpenAI API key, you can
-        <button class="plain" @click="loginType = 'key'">Sign In with API Key</button>
+        <button class="plain" @click="loginType = 'key'">用API Key登录</button>
       </p>
+      <!--ban掉sso-->
+      <!--
       <p v-show="loginType === 'key'">
-        <button class="plain" @click="loginType = 'password'">Back to Sign in</button>
+        <button class="plain" @click="loginType = 'password'">用SSO登录</button>
       </p>
+      -->
     </div>
   </div>
 </template>
