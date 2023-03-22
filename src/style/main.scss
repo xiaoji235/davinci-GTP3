@@ -792,3 +792,24 @@ pre code.hljs {
     }
   }
 }
+
+
+
+.login-page .password {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px;
+    margin: auto;
+    top: 0;
+    max-width:600px;
+    background-color: #ffffff;
+}
+.page-title {
+    padding-top: 35px;
+}
+.page-input{
+    top: 0;
+}
