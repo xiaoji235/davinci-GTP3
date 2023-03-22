@@ -159,25 +159,25 @@
                 <div class="item">
                   <button @click="clearHistory" title="Reset current conversation" :disabled="messages.length === 0">
                     <i class="iconfont" style="top: 2px">&#xe66a;</i>
-                    <span>Reset</span>
+                    <span>重置</span>
                   </button>
                 </div>
                 <div class="item" title="Regenerate the last message">
                   <button @click="reGen(null)" :disabled="streaming || messages.length < 1">
                     <i class="iconfont" style="top: 2px">&#xe67b;</i>
-                    <span>Regenerate</span>
+                    <span>重新回复</span>
                   </button>
                 </div>
                 <div class="item">
                   <button :disabled="sharing || streaming || messages.length < 2" @click="share"
                           title="Publish this conversation">
-                    <i class="iconfont" style="top: 2px; left: 2px">&#xe67d;</i> <span>Publish</span>
+                    <i class="iconfont" style="top: 2px; left: 2px">&#xe67d;</i> <span>分享对话</span>
                   </button>
                 </div>
                 <hr>
                 <div class="item">
                   <button @click="logout" title="Sign out" :disabled="loggingOut">
-                    <i class="iconfont" style="top: 2px; left: 2px">&#xe680;</i> <span>Sign Out</span>
+                    <i class="iconfont" style="top: 2px; left: 2px">&#xe680;</i> <span>退出</span>
                   </button>
                 </div>
               </div>
@@ -200,7 +200,7 @@
           <button role="menuitem" @click.stop="showPageOptions = !showPageOptions" aria-haspopup="true"
                   style="position: relative; z-index: 300">
             <i class="iconfont icon-setting" style="top: 2px" v-show="!showPageOptions"></i>
-            <i class="iconfont icon-close-bold" style="top: 2px" v-show="showPageOptions"></i>Settings
+            <i class="iconfont icon-close-bold" style="top: 2px" v-show="showPageOptions"></i>设置
           </button>
         </div>
       </div>
@@ -960,7 +960,7 @@ export default {
       let _ = this
       if (val) {
         this.streaming = false
-        this.systemInfo = 'Seems like the text stream did not end as expected, you can either ignore it or reset the conversation'
+        this.systemInfo = '句子看起来好像中断了，你可以重置此会话'
         this.scrollDown(true)
         this.composeHistory()
         this.saveHistory()
