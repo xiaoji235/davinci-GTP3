@@ -6,37 +6,33 @@
     }"
   >
     <div class="page-title">
-      <h1>🤖 DaVinci GPT-3</h1>
+      <h1>🤖欢迎使用 GPT-3</h1>
     </div>
     <div v-show="!isLogin && !checkingLogin">
       <div style="line-height: 1.9">
         <p>
-          👏 Introducing DaVinci, your virtual assistant for tasks,
-          questions and conversation. Open Sourced on <a href="https://github.com/jw-12138/davinci-web" target="_blank">GitHub</a>.
+          👏 介绍 OpenAI 的 AI DaVinci，它是您处理任务、问题和对话的虚拟助手。在<a href="https://github.com/jw-12138/davinci-web" target="_blank">GitHub</a>上已开源。
         </p>
       </div>
     </div>
     <login v-show="!isLogin && !checkingLogin" @logged="loggedIn"></login>
     <div>
-      <chat-mode @data-change="handleChatModeChange"
-                 v-show="messages.length === 0 && apiMethodIndex !== 0 && isLogin && !checkingLogin"></chat-mode>
       <div v-show="messages.length < 1 && isLogin && !checkingLogin" style="margin-bottom: 20px">
-        <p> 😎 Capabilities: </p>
+        <p> 😎 我的焯能力: </p>
         <ul>
-          <li> Allow user to set custom instructions and message modifiers</li>
-          <li> Remembers what user said earlier in the conversation</li>
-          <li> Allows user to provide follow-up corrections</li>
+          <li> 能够结合当前情景与你聊骚</li>
+          <li> 你可以纠正我的错误，希望你能够好好利用我</li>
         </ul>
-        <p> 😟 Limitations: </p>
+        <p> 😟 缺陷: </p>
         <ul>
-          <li> May occasionally generate incorrect information</li>
+          <li> 可能偶尔生成不正确的信息</li>
           <li>
-            May occasionally produce harmful instructions or biased content
+            可能偶尔产生有害说明或有偏见的内容
           </li>
-          <li> Limited knowledge of world and events after 2021</li>
+          <li> 对2021年后的世界和事件的了解有限</li>
         </ul>
         <p>
-          🙌 You can also type commands to trigger certain functions.
+          🙌 您还可以键入命令来触发某些函数。
         </p>
         <div>
           <table>
@@ -45,7 +41,7 @@
                 <code>/reset</code>
               </td>
               <td>
-                Reset the conversation
+                重置会话
               </td>
             </tr>
             <tr>
@@ -53,7 +49,7 @@
                 <code>/pub</code>
               </td>
               <td>
-                Publish the conversation
+                发送
               </td>
             </tr>
             <tr>
@@ -61,7 +57,7 @@
                 <code>/regen</code>
               </td>
               <td>
-                Regenerate the last message
+                重新生成最后一条消息
               </td>
             </tr>
             <tr>
@@ -69,18 +65,18 @@
                 <code>/signout</code>
               </td>
               <td>
-                Sign out
+                退出
               </td>
             </tr>
           </table>
         </div>
 
         <p>
-          👻 About this project:
+          👻 关于此项目:
         </p>
         <ul>
           <li>
-            <a href="https://github.com/jw-12138/davinci-web" target="_blank">Open Source</a>
+            在<a href="https://github.com/jw-12138/davinci-web" target="_blank">GitHub</a>已开源
           </li>
           <li>
             <a href="https://github.com/jw-12138/davinci-web/issues" target="_blank">Feedback</a>
